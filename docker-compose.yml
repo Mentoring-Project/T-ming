@@ -1,0 +1,12 @@
+version : ""
+services:
+  wisefee-database:
+    platform: linux/x86_64
+    image: mariadb:10.11.2
+    environment:
+      MYSQL_DATABASE: "T-ming"
+      MYSQL_ROOT_PASSWORD: "Star1220^^"
+    ports:
+      - 3320:3306
+    volumes:
+      - ./local-mariadb:/var/lib/mysql
