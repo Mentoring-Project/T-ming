@@ -1,4 +1,4 @@
-package com.study.toyproject.tming.Entity;
+package com.study.toyproject.tming.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -11,6 +11,4 @@ public class Study {
 
     @Id @GeneratedValue
     private Integer seq;
-
-
 }

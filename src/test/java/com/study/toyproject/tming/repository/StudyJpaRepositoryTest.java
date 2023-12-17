@@ -1,6 +1,6 @@
-package com.study.toyproject.tming.Repository;
+package com.study.toyproject.tming.repository;
 
-import com.study.toyproject.tming.Entity.Study;
+import com.study.toyproject.tming.entity.Study;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
