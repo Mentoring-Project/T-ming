@@ -57,7 +57,7 @@ public class MemberController {
 	 * 회원가입
 	 * */
 	@PostMapping("/joinMember")
-	public String joinMember(@RequestBody MemberDTO memberDTO) throws Exception {
+	public String joinMember(@ModelAttribute MemberDTO memberDTO) throws Exception {
 
 		memberService.save(memberDTO);
 
@@ -67,10 +67,49 @@ public class MemberController {
 	/**
 	 * 아이디 중복 확인
 	 * */
-	@PostMapping("/member/checkId")
+	@PostMapping("/checkId")
 	public @ResponseBody String checkMemberId(@RequestParam("id") String id) {
-		String checkResult = memberService.checkId(id);
+		String checkResult = "";
+		if(id != "") {
+			checkResult = memberService.checkId(id);
+		}
 		return checkResult;
+	}
+
+	/**
+	 * 회원 정보 수정 페이지
+	 * */
+	@GetMapping("/modifyMember")
+	public String modifyMember(HttpSession session, Model model) throws Exception {
+
+		String myId = (String) session.getAttribute("loginId");
+		MemberDTO memberDTO = memberService.updateForm(myId);
+		model.addAttribute("modifyMember", memberDTO);
+
+		return "member/join";
+	}
+
+	/**
+	 * 회원 정보 수정
+	 * */
+	@PostMapping("/modifyMember{id}")
+	public String modifyMember(@PathVariable String id, Model model) {
+
+		MemberDTO memberDTO = memberService.updateForm(id);
+		model.addAttribute("modifyMember", memberDTO);
+
+		return "member/join";
+	}
+
+	/**
+	 * 회원 탈퇴
+	 * */
+	@PostMapping("/deleteMember{id}")
+	public String deleteMember(@PathVariable String id) {
+
+		memberService.deleteById(id);
+
+		return "redirect:/main";
 	}
 
 }

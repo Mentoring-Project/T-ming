@@ -17,8 +17,7 @@ public class MemberService {
 	private final MemberJpaRepository memberJpaRepository;
 
 	public void save(MemberDTO memberDTO) {
-		Member member = new Member();
-		member.toMember(memberDTO);
+		Member member = Member.toMember(memberDTO);
 		memberJpaRepository.save(member);
 	}
 

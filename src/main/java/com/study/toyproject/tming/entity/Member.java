@@ -56,6 +56,7 @@ public class Member {
 		Member.setGender(memberDTO.getGender());
 		Member.setAge(memberDTO.getAge());
 		Member.setPhone(memberDTO.getPhone());
+		Member.setCreateDate(memberDTO.getCreateDate());
 		return Member;
 	}
 
@@ -68,6 +69,7 @@ public class Member {
 		Member.setGender(memberDTO.getGender());
 		Member.setAge(memberDTO.getAge());
 		Member.setPhone(memberDTO.getPhone());
+		Member.setUpdateDate(memberDTO.getUpdateDate());
 		return Member;
 	}
 
