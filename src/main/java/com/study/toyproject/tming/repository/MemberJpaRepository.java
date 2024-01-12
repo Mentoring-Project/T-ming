@@ -1,8 +1,10 @@
 package com.study.toyproject.tming.repository;
 
-import org.springframework.stereotype.Repository;
+import com.study.toyproject.tming.entity.Member;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-@Repository
-public class MemberJpaRepository {
+import java.util.Optional;
 
+public interface MemberJpaRepository extends JpaRepository<Member,Long> {
+	Optional<Member> findById(String id);
 }

@@ -1,18 +1,22 @@
 package com.study.toyproject.tming.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import com.study.toyproject.tming.dto.MemberDTO;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 
 @Entity
 @Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "tb_user")
 public class Member {
-	@Id
+	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "user_seq")
 	private Integer userSeq;
 
@@ -42,5 +46,29 @@ public class Member {
 
 	@Column(name = "update_date")
 	private LocalDateTime updateDate;
+
+	public static Member toMember(MemberDTO memberDTO) {
+		Member Member = new Member();
+		Member.setName(memberDTO.getName());
+		Member.setId(memberDTO.getId());
+		Member.setPassword(memberDTO.getPassword());
+		Member.setEmail(memberDTO.getEmail());
+		Member.setGender(memberDTO.getGender());
+		Member.setAge(memberDTO.getAge());
+		Member.setPhone(memberDTO.getPhone());
+		return Member;
+	}
+
+	public static Member toModifyMember(MemberDTO memberDTO) {
+		Member Member = new Member();
+		Member.setName(memberDTO.getName());
+		Member.setId(memberDTO.getId());
+		Member.setPassword(memberDTO.getPassword());
+		Member.setEmail(memberDTO.getEmail());
+		Member.setGender(memberDTO.getGender());
+		Member.setAge(memberDTO.getAge());
+		Member.setPhone(memberDTO.getPhone());
+		return Member;
+	}
 
 }
