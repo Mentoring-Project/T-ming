@@ -24,10 +24,14 @@ public class MemberDTO {
 
 	public static MemberDTO toMemberDTO(Member Member) {
 		MemberDTO memberDTO = new MemberDTO();
-		memberDTO.setId(Member.getId());
-		memberDTO.setEmail(Member.getEmail());
-		memberDTO.setPassword(Member.getPassword());
 		memberDTO.setName(Member.getName());
+		memberDTO.setId(Member.getId());
+		memberDTO.setPassword(Member.getPassword());
+		memberDTO.setEmail(Member.getEmail());
+		memberDTO.setGender(Member.getGender());
+		memberDTO.setAge(Member.getAge());
+		memberDTO.setPhone(Member.getPhone());
+		memberDTO.setCreateDate(Member.getCreateDate());
 		return memberDTO;
 	}
 	

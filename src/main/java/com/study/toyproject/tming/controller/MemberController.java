@@ -76,40 +76,40 @@ public class MemberController {
 		return checkResult;
 	}
 
-	/**
-	 * 회원 정보 수정 페이지
-	 * */
-	@GetMapping("/modifyMember")
-	public String modifyMember(HttpSession session, Model model) throws Exception {
-
-		String myId = (String) session.getAttribute("loginId");
-		MemberDTO memberDTO = memberService.updateForm(myId);
-		model.addAttribute("modifyMember", memberDTO);
-
-		return "member/join";
-	}
-
-	/**
-	 * 회원 정보 수정
-	 * */
-	@PostMapping("/modifyMember{id}")
-	public String modifyMember(@PathVariable String id, Model model) {
-
-		MemberDTO memberDTO = memberService.updateForm(id);
-		model.addAttribute("modifyMember", memberDTO);
-
-		return "member/join";
-	}
-
-	/**
-	 * 회원 탈퇴
-	 * */
-	@PostMapping("/deleteMember{id}")
-	public String deleteMember(@PathVariable String id) {
-
-		memberService.deleteById(id);
-
-		return "redirect:/main";
-	}
+//	/**
+//	 * 회원 정보 수정 페이지
+//	 * */
+//	@GetMapping("/modifyMember")
+//	public String modifyMember(HttpSession session, Model model) throws Exception {
+//
+//		String myId = (String) session.getAttribute("loginId");
+//		MemberDTO memberDTO = memberService.updateForm(myId);
+//		model.addAttribute("modifyMember", memberDTO);
+//
+//		return "member/join";
+//	}
+//
+//	/**
+//	 * 회원 정보 수정
+//	 * */
+//	@PostMapping("/modifyMember{id}")
+//	public String modifyMember(@PathVariable String id, Model model) {
+//
+//		MemberDTO memberDTO = memberService.updateForm(id);
+//		model.addAttribute("modifyMember", memberDTO);
+//
+//		return "member/join";
+//	}
+//
+//	/**
+//	 * 회원 탈퇴
+//	 * */
+//	@PostMapping("/deleteMember{id}")
+//	public String deleteMember(@PathVariable String id) {
+//
+//		memberService.deleteById(id);
+//
+//		return "redirect:/main";
+//	}
 
 }
