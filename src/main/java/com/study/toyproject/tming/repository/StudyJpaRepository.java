@@ -1,6 +1,6 @@
-package com.study.toyproject.tming.Repository;
+package com.study.toyproject.tming.repository;
 
-import com.study.toyproject.tming.Entity.Study;
+import com.study.toyproject.tming.entity.Study;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;

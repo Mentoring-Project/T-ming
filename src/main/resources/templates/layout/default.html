@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head th:replace="fragments/head :: HeadFragment">
+    <title>T-ming</title>
+</head>
+
+<body>
+    <!--Header-->
+    <header th:replace="fragments/header :: HeaderFragment"></header>
+
+    <!--Content-->
+    <th:block th:replace="fragments/content :: ContentFragment"></th:block>
+
+    <!--Footer-->
+    <footer th:replace="fragments/footer :: FooterFragment"></footer>
+</body>
+</html>
