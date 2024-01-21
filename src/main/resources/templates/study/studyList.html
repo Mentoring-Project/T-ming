@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:fragment="Content">
+<head>
+  <title>스터디 목록</title>
+</head>
+
+  <div class="row">
+    <table class="table">
+      <thead>
+      <tr>
+        <th scope="col">스터디명</th>
+        <th scope="col">Product</th>
+        <th scope="col">Customer</th>
+        <th scope="col">Total</th>
+        <th scope="col">Date</th>
+        <th scope="col"></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:if="${#lists.size(studyList) == 0}">
+        <td colspan="6">조회된 내역이 없습니다.</td>
+      </tr>
+      <tr th:if="${#lists.size(studyList) != 0}" th:each="list : ${studyList}" th:data-id="${list.studySeq}"
+          th:onclick="studyDetail([(${list.studySeq})])">
+        <th scope="row">17371705</th>
+        <td th:utext="${list.studyName}"></td>
+        <td>johndoe@gmail.com</td>
+        <td th:utext="${#dates.format(list.regDate, 'yyyy-MM-dd')}">2024-01-01</td>
+        <td>Aug 31 2020</td>
+        <td><a href="#" class="btn btn-primary">View</a></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <hr class="mt-6" />
+
+</html>
