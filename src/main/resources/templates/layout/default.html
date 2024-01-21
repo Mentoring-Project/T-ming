@@ -3,18 +3,19 @@
       xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 
-<head th:replace="fragments/head :: HeadFragment">
+<head>
+    <th:block th:replace="fragments/head :: head"></th:block>
     <title>T-ming</title>
 </head>
 
 <body>
     <!--Header-->
-    <header th:replace="fragments/header :: HeaderFragment"></header>
+    <th:block th:replace="fragments/header :: header"></th:block>
 
     <!--Content-->
-    <th:block th:replace="fragments/content :: ContentFragment"></th:block>
+    <th:block layout:fragment="content"></th:block>
 
     <!--Footer-->
-    <footer th:replace="fragments/footer :: FooterFragment"></footer>
+    <th:block th:replace="fragments/footer :: footer"></th:block>
 </body>
 </html>

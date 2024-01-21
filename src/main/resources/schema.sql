@@ -1,4 +1,14 @@
-CREATE DATABASE `tmingDB`;
+
+DROP TABLE IF EXISTS tb_file;
+DROP TABLE IF EXISTS tb_user;
+DROP TABLE IF EXISTS tb_user_auth;
+DROP TABLE IF EXISTS tb_study;
+DROP TABLE IF EXISTS tb_study_member;
+DROP TABLE IF EXISTS tb_study_applicant;
+DROP TABLE IF EXISTS tb_study_category;
+DROP TABLE IF EXISTS tb_portfolio;
+DROP TABLE IF EXISTS tb_chat_list;
+DROP TABLE IF EXISTS tb_chat_msg;
 
 DROP TABLE IF EXISTS tb_file;
 DROP TABLE IF EXISTS tb_user;
