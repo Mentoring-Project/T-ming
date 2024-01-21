@@ -1,5 +1,16 @@
 CREATE DATABASE `tmingDB`;
 
+DROP TABLE IF EXISTS tb_file;
+DROP TABLE IF EXISTS tb_user;
+DROP TABLE IF EXISTS tb_user_auth;
+DROP TABLE IF EXISTS tb_study;
+DROP TABLE IF EXISTS tb_study_member;
+DROP TABLE IF EXISTS tb_study_applicant;
+DROP TABLE IF EXISTS tb_study_category;
+DROP TABLE IF EXISTS tb_portfolio;
+DROP TABLE IF EXISTS tb_chat_list;
+DROP TABLE IF EXISTS tb_chat_msg;
+
 CREATE TABLE `tb_file` (
        `file_seq` int(11) NOT NULL AUTO_INCREMENT,
        `file_name` varchar(100) DEFAULT NULL,
@@ -36,20 +47,22 @@ CREATE TABLE `tb_user_auth` (
 
 CREATE TABLE `tb_study` (
         `study_seq`	int(11)	NOT NULL auto_increment,
-        `user_seq`	int(11)	NOT NULL	COMMENT '생성한 회원 시퀀스',
+        `user_seq`	int(11)	NOT NULL,
         `category_seq`	int(11)	NOT NULL,
-        `title`	varchar(50)	NULL	COMMENT '스터디 이름',
-        `sub_title`	varchar(200)	NULL	COMMENT '스터디 소개글',
-        `contents`	varchar(200)	NULL	COMMENT '스터디 내용',
-        `recruit_int` int(11)	NULL	COMMENT '모집 인원수',
-        `type`	varchar(20)	NULL	COMMENT '온라인, 오프라인',
-        `hope_area`	varchar(100)	NULL	COMMENT '희망 지역',
-        `start_date`	timestamp	NULL	COMMENT '시작일',
-        `end_date`	timestamp	NULL	COMMENT '종료일',
-        `status`	varchar(10)	NULL	COMMENT '상태(모집, 마감)',
-        `create_date`	timestamp	NULL	COMMENT '생성일',
-        `update_date`	timestamp	NULL	COMMENT '수정일',
-        `portfolio_yn`	varchar(2)	NULL	COMMENT '포트폴리오 여부',
+        `title`	varchar(50)	NULL,
+        `sub_title`	varchar(200)	NULL,
+        `contents`	varchar(200)	NULL,
+        `recruit_int` int(11)	NULL,
+        `type`	varchar(20)	NULL,
+        `hope_area`	varchar(100),
+        `start_date`	timestamp,
+        `end_date`	timestamp,
+        `status`	varchar(10)	NULL,
+        `create_date`	timestamp,
+        `creator`	varchar(15),
+        `update_date`	timestamp,
+        `updator`	varchar(15),
+        `portfolio_yn`	varchar(2)	NULL,
         PRIMARY KEY (`study_seq`)
 );
 

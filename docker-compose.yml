@@ -2,11 +2,11 @@ version : ""
 services:
   wisefee-database:
     platform: linux/x86_64
-    image: mariadb:10.11.2
+    image: mariadb:10.3.30
     environment:
-      MYSQL_DATABASE: "T-ming"
-      MYSQL_ROOT_PASSWORD: "Star1220^^"
+      MARIADB_DATABASE: "test"
+      MARIADB_ROOT_PASSWORD: "root"
     ports:
-      - 3320:3306
+      - 3320
     volumes:
-      - ./local-mariadb:/var/lib/mysql
+      - ./local-mariadb:/var/lib/docker/volumes
