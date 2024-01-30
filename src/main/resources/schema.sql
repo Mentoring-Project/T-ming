@@ -88,7 +88,8 @@ CREATE TABLE `tb_study_category` (
                  `category_seq`	int(11)	NOT NULL auto_increment,
                  `category_type`	varchar(10)	NULL	COMMENT '카테고리 타입',
                  `category_add`	varchar(50)	NULL	DEFAULT null	COMMENT '카테고리 직접추가',
-                 PRIMARY KEY (`category_seq`)
+                 `use_yn` varchar(3) NOT NULL DEFAULT 'Y' COMMENT '카테고리 사용유무',
+                  PRIMARY KEY (`category_seq`)
 );
 
 CREATE TABLE `tb_portfolio` (
