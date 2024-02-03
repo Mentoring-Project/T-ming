@@ -4,20 +4,33 @@ $(document).ready(() => {
     const $joinSubmitBtn = $(".devJoinSubmit");
 
     const checkMemberId = () => {
-        let idValue = {"id": $id.val().trim()};
+        const idValue = $id.val().trim();
         const $checkResult = $("#checkResult");
+        const regexKr = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/;
+
+        if(idValue == "") {
+            $id.val("").focus();
+            $checkResult.hide();
+            return false;
+        }
+
+        if(regexKr.test(idValue)) {
+            alert("한글을 제외한 영문과 숫자만 입력해 주세요.");
+            $id.val("").focus();
+            $checkResult.hide();
+            return false;
+        }
 
         $.ajax({
-            type: "post",
-            url: "/member/checkId",
-            data: idValue,
+            type: "get",
+            url: `/member/${idValue}`,
+            data: {id: idValue},
             success: function(data) {
-                console.log("요청성공", data);
-                if(data == "ok") {
-                    $checkResult.text("사용 가능한 아이디 입니다.");
+                if(data == true) {
+                    $checkResult.show().text("사용 가능한 아이디 입니다.");
                     $checkResult.css("color", "green");
                 } else {
-                    $checkResult.text("이미 사용중인 아이디 입니다.");
+                    $checkResult.show().text("이미 사용중인 아이디 입니다.");
                     $checkResult.css("color", "red");
                 }
             },

@@ -4,25 +4,20 @@ import com.study.toyproject.tming.dto.MemberDTO;
 import com.study.toyproject.tming.entity.Member;
 import com.study.toyproject.tming.repository.MemberJpaRepository;
 import com.study.toyproject.tming.service.MemberService;
-import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import static org.mockito.Mockito.mock;
+
 @SpringBootTest
-@Transactional
 class MemberControllerTest {
-
-	@Autowired
-	MemberService memberService;
-
-	@Autowired
-	MemberJpaRepository memberJpaRepository;
 
 	@DisplayName("회원 가입")
 	@Test
 	void joinMemberTest() throws Exception {
+
+		MemberJpaRepository memberJpaRepository = mock(MemberJpaRepository.class);
 
 		Member member = memberJpaRepository.save(Member.builder()
 			.userSeq(1)
@@ -41,10 +36,12 @@ class MemberControllerTest {
 	@Test
 	void loginTest() throws Exception {
 
-		MemberDTO memberDTO = new MemberDTO();
-		memberDTO.setUserSeq(1);
-		memberDTO.setId("test");
-		memberDTO.setPassword("test");
+		MemberService memberService = mock(MemberService.class);
+
+		MemberDTO memberDTO = MemberDTO.builder()
+			.id("test")
+			.password("test")
+			.build();
 
 		memberService.login(memberDTO);
 
