@@ -13,7 +13,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @Slf4j
 @Controller
@@ -39,8 +38,7 @@ public class StudyController {
     }
 
     /*
-    * 상세
-    * */
+
     @GetMapping("/studyDetail")
     public String studyDetail (Model model, HttpServletRequest request, @RequestParam Integer studySeq) {
 
@@ -57,19 +55,17 @@ public class StudyController {
 
         }
 
-
         return "study/studyDetail";
     }
 
-    /*
-     * 수정
-     * */
     @PostMapping("/studyDetail")
     public String studyDetail (Model model, HttpServletRequest request, @RequestBody Study study) {
 
 
         return "redirect:/study/studyDetail";
     }
+
+    */
 
 
 }
