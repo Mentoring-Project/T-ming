@@ -1,4 +1,14 @@
-CREATE DATABASE `tmingDB`;
+
+DROP TABLE IF EXISTS tb_file;
+DROP TABLE IF EXISTS tb_user;
+DROP TABLE IF EXISTS tb_user_auth;
+DROP TABLE IF EXISTS tb_study;
+DROP TABLE IF EXISTS tb_study_member;
+DROP TABLE IF EXISTS tb_study_applicant;
+DROP TABLE IF EXISTS tb_study_category;
+DROP TABLE IF EXISTS tb_portfolio;
+DROP TABLE IF EXISTS tb_chat_list;
+DROP TABLE IF EXISTS tb_chat_msg;
 
 DROP TABLE IF EXISTS tb_file;
 DROP TABLE IF EXISTS tb_user;
@@ -88,7 +98,8 @@ CREATE TABLE `tb_study_category` (
                  `category_seq`	int(11)	NOT NULL auto_increment,
                  `category_type`	varchar(10)	NULL	COMMENT '카테고리 타입',
                  `category_add`	varchar(50)	NULL	DEFAULT null	COMMENT '카테고리 직접추가',
-                 PRIMARY KEY (`category_seq`)
+                 `use_yn` varchar(3) NOT NULL DEFAULT 'Y' COMMENT '카테고리 사용유무',
+                  PRIMARY KEY (`category_seq`)
 );
 
 CREATE TABLE `tb_portfolio` (

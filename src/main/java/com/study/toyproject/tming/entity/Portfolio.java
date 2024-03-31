@@ -11,47 +11,30 @@ import java.time.LocalDateTime;
 
 @Entity
 @Data
-@Table(name = "tb_study")
+@Table(name = "tb_portfolio")
 @DynamicInsert
-public class Study {
+public class Portfolio {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="port_seq")
+    private Integer portSeq;
 
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="study_seq")
     private Integer studySeq;
 
-    @Column(name="user_seq")
-    private Integer userSeq;
+    @Column(name="file_seq")
+    private Integer fileSeq;
 
     @Column(name="category_seq")
     private Integer categorySeq;
 
-    @Column
+    @Column(name="title")
     private String title;
 
     @Column(name="sub_title")
-    private String subitle;
+    private String subTitle;
 
-    @Column
-    private String contents;
-
-    @Column(name="recruit_int")
-    private Integer recruitInt;
-
-    @Column
-    private String type;
-
-    @Column(name="hope_area")
-    private String hopeArea;
-
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
-    @Column(nullable = true, name="start_date")
-    private LocalDateTime startDate;
-
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
-    @Column(nullable = true, name="end_date")
-    private LocalDateTime endDate;
-
-    @Column
+    @Column(name="status")
     private String status;
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
@@ -64,10 +47,9 @@ public class Study {
     @UpdateTimestamp
     private LocalDateTime updateDate;
 
-    @Column(name="portfolio_yn")
-    private String portfolioYn;
+    @Column(name="creator")
+    private String creator;
 
-    @Transient
-    private Integer memberNum = 0;
-
+    @Column(name="updator")
+    private String updator;
 }
